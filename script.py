@@ -11,7 +11,7 @@ commands = [
   # NVM Setup
   'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash',
   'source ~/.bashrc'
-  'nvm install node',
+  'nvm install --lts',
   # PHP Setup
   'sudo apt update && apt upgrade -y',
   'sudo add-apt-repository ppa:ondrej/php',
@@ -34,6 +34,8 @@ commands = [
   'sudo apt install gh',
   # Setup Heroku CLI
   'curl https://cli-assets.heroku.com/install.sh | sh',
+  # yarn install
+  'npm install -g yarn pnpm'
   #  DOcker post script
   'sudo groupadd docker',
   'sudo usermod -aG docker $USER',
