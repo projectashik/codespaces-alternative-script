@@ -6,8 +6,11 @@ ghName = input("Enter your name: \n");
 commands = [
   # GIT SETUP
   "git config --global user.email "+ ghEmail,
-  "git config --global user.name "+ ghName, 
+  "git config --global user.name "+ ghName,
   'git config --global init.defaultBranch main',
+  # build essentials
+  "sudo apt update",
+  "sudo apt install build-essential",
   # NVM Setup
   'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash',
   'source ~/.bashrc'
@@ -18,7 +21,7 @@ commands = [
   'sudo apt update',
   'sudo apt install php8.1 -y',
   'sudo apt install -y php8.1-cli php8.1-common php8.1-mysql php8.1-zip php8.1-gd php8.1-mbstring php8.1-curl php8.1-xml php8.1-bcmath',
-  # Composer Setup 
+  # Composer Setup
   'php -r "copy(\'https://getcomposer.org/installer\', \'composer-setup.php\');"',
   'php -r "if (hash_file(\'sha384\', \'composer-setup.php\') === \'55ce33d7678c5a611085589f1f3ddf8b3c52d662cd01d4ba75c0ee0459970c2200a51f492d557530c71c15d8dba01eae\') { echo \'Installer verified\'; } else { echo \'Installer corrupt\'; unlink(\'composer-setup.php\'); } echo PHP_EOL;"',
   'php composer-setup.php',
@@ -26,7 +29,7 @@ commands = [
   'sudo mv composer.phar /usr/local/bin/composer',
   # Docker Setup
   'curl -fsSL https://get.docker.com  | sh',
-  
+
   # Install Github CLI
   'curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg',
   'echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null',
