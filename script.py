@@ -15,6 +15,15 @@ commands = [
   'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash',
   'source ~/.bashrc'
   'nvm install --lts',
+  "source ~/.bashrc",
+  # NPM and PNPM installation
+  "npm install -g yarn pnpm",
+  # Deno Setup
+  "sudo apt install unzip",
+  "curl -fsSL https://deno.land/x/install/install.sh | sh",
+  'echo \'export DENO_INSTALL="/home/ubuntu/.deno"\' >> ~/.bashrc',
+  'echo \'export PATH="$DENO_INSTALL/bin:$PATH"\' >> ~/.bashrc',
+  "source ~/.bashrc",
   # PHP Setup
   'sudo apt update && apt upgrade -y',
   'sudo add-apt-repository ppa:ondrej/php',
@@ -37,16 +46,21 @@ commands = [
   'sudo apt install gh',
   # Setup Heroku CLI
   'curl https://cli-assets.heroku.com/install.sh | sh',
-  # yarn install
-  'npm install -g yarn pnpm'
   #  DOcker post script
   'sudo groupadd docker',
   'sudo usermod -aG docker $USER',
-  'newgrp docker',
+]
+
+postScripts = [
+'newgrp docker',
 ]
 
 for cmd in commands:
   print("Running " + cmd)
   os.system(cmd)
 
+
 print("Installed: nvm, node, docker, php, composer, github cli, heroku cli")
+
+for cmd in postScripts:
+  os.system(cmd)
