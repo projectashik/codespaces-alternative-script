@@ -10,7 +10,7 @@ commands = [
   'git config --global init.defaultBranch main',
   # build essentials
   "sudo apt update",
-  "sudo apt install build-essential",
+  "sudo apt install build-essential -y",
   # NVM Setup
   'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash',
   'source ~/.bashrc'
