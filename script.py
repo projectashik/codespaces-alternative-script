@@ -13,7 +13,7 @@ commands = [
   "sudo apt install build-essential -y",
   # NVM Setup
   'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash',
-  'source ~/.bashrc'
+  'source ~/.bashrc',
   'nvm install --lts',
   "source ~/.bashrc",
   # NPM and PNPM installation
