@@ -13,9 +13,9 @@ commands = [
   "sudo apt install build-essential -y",
   # NVM Setup
   'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash',
-  'source ~/.bashrc',
+  '. ~/.bashrc',
   'nvm install --lts',
-  "source ~/.bashrc",
+  ". ~/.bashrc",
   # NPM and PNPM installation
   "npm install -g yarn pnpm",
   # Deno Setup
@@ -44,8 +44,13 @@ commands = [
   'echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null',
   'sudo apt update',
   'sudo apt install gh',
-  # Setup Heroku CLI
-  'curl https://cli-assets.heroku.com/install.sh | sh',
+  # Install MongoDB
+  'wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -',
+  'echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list',
+  'sudo apt-get update',
+  'sudo apt-get install -y mongodb-org',
+  'sudo systemctl start mongod',
+  'sudo systemctl enable mongod',
   #  DOcker post script
   'sudo groupadd docker',
   'sudo usermod -aG docker $USER',
@@ -60,7 +65,7 @@ for cmd in commands:
   os.system(cmd)
 
 
-print("Installed: nvm, node, docker, php, composer, github cli, heroku cli")
+print("Installed: nvm, node, docker, php, composer, github cli, mongodb, deno, yarn, pnpm")
 
 for cmd in postScripts:
   os.system(cmd)
